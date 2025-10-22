@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Promo BPR</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap');
+body{margin:0;background:#fff;display:flex;justify-content:center;align-items:center;height:100vh;font-family:'Inter',sans-serif}
+#card{width:96%;max-width:420px;background:#fff;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,.3);overflow:hidden}
+.top{display:flex;align-items:center;justify-content:space-between;padding:4px 6px 2px;font-size:11px;font-weight:600}
+.blink{color:#0066cc;animation:blink 1s step-start infinite;margin-right:4px}
+@keyframes blink{50%{opacity:0}}
+.btn{background:#0052cc;color:#fff;border:none;border-radius:4px;padding:3px 6px;font-size:10px;font-weight:600;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.15);transition:.2s}
+.btn:hover{background:#0044aa}
+
+/* Bar progres kecil */
+#progress{height:2px;background:#e0e0e0;position:relative;overflow:hidden;display:none}
+#progressBar{height:100%;width:0%;background:#0052cc;animation:load 1s linear infinite}
+@keyframes load{0%{width:0%}100%{width:100%}}
+
+#view{height:22px;position:relative;font-size:11px;font-weight:500;color:#111;line-height:22px;padding:0 6px 5px;overflow:hidden}
+.line{position:absolute;left:0;right:0;padding:0 6px;white-space:nowrap;animation:in-out 3s ease-in-out forwards}
+@keyframes in-out{
+  0%{opacity:0;transform:translateY(8px)}15%{opacity:1;transform:translateY(0)}85%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-8px)}
+}
+</style>
+</head>
+<body>
+
+<div id="card">
+  <div class="top">
+    <div>
+      <span class="blink">⬆️BURUAN!!!</span><span>SPECIAL UNTUK BPR/BPRS</span>
+    </div>
+    <button class="btn" onclick="window.open('https://www.perbarindodpdjateng.or.id/r','_blank')">Daftar</button>
+  </div>
+  <div id="progress"><div id="progressBar"></div></div>
+  <div id="view"></div>
+</div>
+
+<script>
+const SHEET='https://script.google.com/macros/s/AKfycbzlkt7qCe0bqzez5_ThJ2OpKJ2GJwdcv0V7_sUtrZ0ntx4j0VOH9MAw8UibCO5GQNaE/exec';
+const view=document.getElementById('view');
+const progress=document.getElementById('progress');
+let rows=[],idx=0,lastHash='';
+const hash=o=>btoa(JSON.stringify(o));
+
+async function pull(){
+  progress.style.display='block';
+  try{
+    const r=await fetch(SHEET,{cache:'no-store'});
+    const j=await r.json();
+    if(!Array.isArray(j)||j.length<2)return;
+    const h=hash(j);
+    if(h===lastHash)return;
+    lastHash=h;
+    rows=j.slice(1).map(r=>[r[1],r[2],r[3]]);
+    if(!rows.length)return;
+    show();
+  }catch{view.innerHTML='<div class="line">Gagal memuat</div>';}
+  finally{progress.style.display='none';}
+}
+
+function show(){
+  view.innerHTML='';
+  const div=document.createElement('div');
+  div.className='line';
+  div.textContent=rows[idx].join(' • ');
+  view.appendChild(div);
+  idx=(idx+1)%rows.length;
+}
+
+addEventListener('DOMContentLoaded',()=>{pull();setInterval(pull,15000);setInterval(show,3000);});
+</script>
+</body>
+</html>
