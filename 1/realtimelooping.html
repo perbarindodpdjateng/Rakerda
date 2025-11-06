@@ -5,36 +5,69 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Promo BPR</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap');
-body{margin:0;background:#fff;display:flex;justify-content:center;align-items:center;height:100vh;font-family:'Inter',sans-serif}
-#card{width:96%;max-width:420px;background:#fff;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,.3);overflow:hidden}
-.top{display:flex;align-items:center;justify-content:space-between;padding:4px 6px 2px;font-size:11px;font-weight:600}
-.blink{color:#0066cc;animation:blink 1s step-start infinite;margin-right:4px}
-@keyframes blink{50%{opacity:0}}
-.btn{background:#0052cc;color:#fff;border:none;border-radius:4px;padding:3px 6px;font-size:10px;font-weight:600;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.15);transition:.2s}
-.btn:hover{background:#0044aa}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-/* Bar progres kecil */
+body{margin:0;background:#fff;display:flex;justify-content:center;align-items:flex-start;height:80vh;font-family:'Inter',sans-serif;padding:8px}
+#card{width:96%;max-width:420px;background:#fff;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.15);overflow:hidden;border:1px solid #eaeaea}
+
+/* Event Header - FLEX LAYOUT dengan Date Box */
+.event-header{background:linear-gradient(135deg,#0052cc 0%,#0066cc 100%);color:#fff;padding:5px 8px;display:flex;align-items:center;gap:6px}
+
+.header-text{flex:1}
+
+.main-header{font-size:11px;font-weight:700;line-height:1.2;margin-bottom:2px;text-transform:uppercase;letter-spacing:.3px}
+.sub-header{font-size:7px;font-weight:400;line-height:1.2;margin-bottom:2px;opacity:.95}
+
+/* Date Box 3 baris */
+.date-box{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:3px;padding:3px 5px;display:flex;flex-direction:column;justify-content:center;align-items:center;min-width:38px}
+.date-line{font-size:10px;font-weight:600;line-height:1.1;text-align:center;white-space:nowrap}
+
+/* Top section */
+.top{display:flex;align-items:center;justify-content:space-between;padding:5px 8px;background:#f8f9fa;border-bottom:1px solid #e0e0e0;gap:6px}
+.top-message{font-size:10px;font-weight:600;line-height:1;letter-spacing:.2px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.blink{color:#0066cc;animation:blink 1.5s step-start infinite;margin-right:3px}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+.btn{background:#0052cc;color:#fff;border:none;border-radius:5px;padding:5px 10px;font-size:10px;font-weight:600;cursor:pointer;box-shadow:0 2px 4px rgba(0,0,0,.1);transition:all .2s ease;letter-spacing:.3px;white-space:nowrap}
+.btn:hover{background:#0044aa;transform:translateY(-1px);box-shadow:0 3px 6px rgba(0,0,0,.15)}
+
+/* Progress Bar */
 #progress{height:2px;background:#e0e0e0;position:relative;overflow:hidden;display:none}
-#progressBar{height:100%;width:0%;background:#0052cc;animation:load 1s linear infinite}
+#progressBar{height:100%;width:0%;background:linear-gradient(90deg,#0052cc,#0066cc);animation:load 1.2s cubic-bezier(0.4,0,0.2,1) infinite}
 @keyframes load{0%{width:0%}100%{width:100%}}
 
-#view{height:22px;position:relative;font-size:11px;font-weight:500;color:#111;line-height:22px;padding:0 6px 5px;overflow:hidden}
-.line{position:absolute;left:0;right:0;padding:0 6px;white-space:nowrap;animation:in-out 3s ease-in-out forwards}
-@keyframes in-out{
-  0%{opacity:0;transform:translateY(8px)}15%{opacity:1;transform:translateY(0)}85%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-8px)}
-}
+/* View Section */
+#view{height:22px;position:relative;font-size:10px;font-weight:500;color:#111;line-height:22px;padding:0 12px;overflow:hidden;background:#fff}
+.line{position:absolute;left:0;right:0;padding:0 12px;white-space:nowrap;animation:in-out 3s ease-in-out forwards;font-weight:500}
+@keyframes in-out{0%{opacity:0;transform:translateY(6px)}15%{opacity:1;transform:translateY(0)}85%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-6px)}}
+
+/* Responsive */
+@media (max-width:480px){.main-header{font-size:10px}.sub-header{font-size:6px}.date-line{font-size:9px}}
 </style>
 </head>
 <body>
 
 <div id="card">
+  <div class="event-header">
+    <div class="header-text">
+      <div class="main-header">SEMINAR, RAKERDA II, HARMONISASI PERBARINDO DPD JAWA TENGAH</div>
+      <div class="sub-header">Penguatan Industri BPR/BPRS melalui sinergi dengan Regulator, Penegak Hukum, KPKNL & BPN dalam Penanganan Kredit Bermasalah</div>
+    </div>
+    <div class="date-box">
+      <div class="date-line">11-12</div>
+      <div class="date-line">November</div>
+      <div class="date-line">2025</div>
+    </div>
+  </div>
+  
   <div class="top">
-    <div>
+    <div class="top-message">
       <span class="blink">⬆️BURUAN!!!</span><span>SPECIAL UNTUK BPR/BPRS</span>
     </div>
     <button class="btn" onclick="window.open('https://www.perbarindodpdjateng.or.id/r','_blank')">Daftar</button>
   </div>
+  
   <div id="progress"><div id="progressBar"></div></div>
   <div id="view"></div>
 </div>
@@ -44,6 +77,7 @@ const SHEET='https://script.google.com/macros/s/AKfycbzlkt7qCe0bqzez5_ThJ2OpKJ2G
 const view=document.getElementById('view');
 const progress=document.getElementById('progress');
 let rows=[],idx=0,lastHash='';
+
 const hash=o=>btoa(JSON.stringify(o));
 
 async function pull(){
@@ -53,25 +87,32 @@ async function pull(){
     const j=await r.json();
     if(!Array.isArray(j)||j.length<2)return;
     const h=hash(j);
-    if(h===lastHash)return;
+    if(h===lastHash){progress.style.display='none';return;}
     lastHash=h;
-    rows=j.slice(1).map(r=>[r[1],r[2],r[3]]);
-    if(!rows.length)return;
+    rows=j.slice(1).map(r=>[r[0],r[1],r[2]].filter(Boolean));
+    if(!rows.length){progress.style.display='none';return;}
     show();
-  }catch{view.innerHTML='<div class="line">Gagal memuat</div>';}
-  finally{progress.style.display='none';}
+  }catch(e){
+    console.error('Error:',e);
+    view.innerHTML='<div class="line" style="color:#d32f2f;">⚠️ Gagal memuat data</div>';
+  }finally{
+    setTimeout(()=>{progress.style.display='none'},300);
+  }
 }
 
 function show(){
+  if(!rows||!rows.length)return;
   view.innerHTML='';
   const div=document.createElement('div');
   div.className='line';
-  div.textContent=rows[idx].join(' • ');
+  const content=rows[idx].filter(c=>c&&c.toString().trim()).join(' • ');
+  div.textContent=content||'Data tidak tersedia';
   view.appendChild(div);
   idx=(idx+1)%rows.length;
 }
 
-addEventListener('DOMContentLoaded',()=>{pull();setInterval(pull,15000);setInterval(show,3000);});
+addEventListener('DOMContentLoaded',()=>{pull();setInterval(pull,15000);setInterval(show,3000)});
 </script>
+
 </body>
 </html>
