@@ -2,8 +2,7 @@
 body{background:#fff;display:flex;justify-content:center;padding:8px;font-family:system-ui,-apple-system,sans-serif}
 #card{width:96%;max-width:420px;background:#fff;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.15);overflow:hidden;border:1px solid #eaeaea}
 .eh{background:linear-gradient(135deg,#0052cc 0%,#0066cc 100%);color:#fff;padding:5px 8px;display:flex;gap:6px;align-items:center}
-.ht{flex:1}
-.mh{font-size:11px;font-weight:700;line-height:1.2;margin-bottom:2px;text-transform:uppercase;letter-spacing:.3px}
+.ht{flex:1}.mh{font-size:11px;font-weight:700;line-height:1.2;margin-bottom:2px;text-transform:uppercase;letter-spacing:.3px}
 .sh{font-size:7px;font-weight:400;line-height:1.2;opacity:.95}
 .db{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:3px;padding:3px 5px;display:flex;flex-direction:column;align-items:center;min-width:38px}
 .dl{font-size:10px;font-weight:600;line-height:1.1;white-space:nowrap}
@@ -13,9 +12,6 @@ body{background:#fff;display:flex;justify-content:center;padding:8px;font-family
 @keyframes b{0%,100%{opacity:1}50%{opacity:0}}
 .bt{background:#0052cc;color:#fff;border:none;border-radius:5px;padding:5px 10px;font-size:10px;font-weight:600;cursor:pointer;box-shadow:0 2px 4px rgba(0,0,0,.1);transition:all .2s;letter-spacing:.3px}
 .bt:hover{background:#0044aa;transform:translateY(-1px);box-shadow:0 3px 6px rgba(0,0,0,.15)}
-#pg{height:2px;background:#e0e0e0;position:relative;overflow:hidden;display:none}
-#pgb{height:100%;width:0;background:linear-gradient(90deg,#0052cc,#0066cc);animation:l 1.2s cubic-bezier(0.4,0,0.2,1) infinite}
-@keyframes l{0%{width:0}100%{width:100%}}
 #vw{height:22px;font-size:10px;font-weight:500;line-height:22px;padding:0 12px;overflow:hidden;position:relative}
 .l{position:absolute;left:0;right:0;padding:0 12px;white-space:nowrap;animation:o 3s ease-in-out forwards}
 @keyframes o{0%{opacity:0;transform:translateY(6px)}15%{opacity:1;transform:translateY(0)}85%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-6px)}}
