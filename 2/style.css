@@ -16,7 +16,7 @@ body{background:#fff;display:flex;justify-content:center;padding:8px;font-family
 #pg{height:2px;background:#e0e0e0;position:relative;overflow:hidden;display:none}
 #pgb{height:100%;width:0;background:linear-gradient(90deg,#0052cc,#0066cc);animation:l 1.2s cubic-bezier(0.4,0,0.2,1) infinite}
 @keyframes l{0%{width:0}100%{width:100%}}
-#vw{height:22px;font-size:10px;font-weight:500;line-height:22px;padding:0 12px;overflow:hidden}
+#vw{height:22px;font-size:10px;font-weight:500;line-height:22px;padding:0 12px;overflow:hidden;position:relative}
 .l{position:absolute;left:0;right:0;padding:0 12px;white-space:nowrap;animation:o 3s ease-in-out forwards}
 @keyframes o{0%{opacity:0;transform:translateY(6px)}15%{opacity:1;transform:translateY(0)}85%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-6px)}}
 @media(max-width:480px){.mh{font-size:10px}.sh{font-size:6px}.dl{font-size:9px}}
